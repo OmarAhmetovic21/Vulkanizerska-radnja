@@ -3,6 +3,7 @@ import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 import { NgbAccordionConfig } from '@ng-bootstrap/ng-bootstrap';
 import * as Rellax from 'rellax';
 import { Router } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
     selector: 'app-components',
@@ -14,7 +15,8 @@ import { Router } from '@angular/router';
     `]
 })
 
-export class ComponentsComponent implements OnInit, OnDestroy {
+export class ComponentsComponent implements OnInit {
+    isDesktopDevice: any;
     data : Date = new Date();
 
     page = 4;
