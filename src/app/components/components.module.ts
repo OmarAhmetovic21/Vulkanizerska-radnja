@@ -14,6 +14,8 @@ import { ComponentsComponent } from './components.component';
 import { NotificationComponent } from './notification/notification.component';
 import { NgbdModalBasic } from './modal/modal.component';
 import { ONamaComponent } from './o-nama/o-nama.component';
+import { PonudeComponent } from './ponude/ponude.component';
+import { KontaktComponent } from './kontakt/kontakt.component';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { ONamaComponent } from './o-nama/o-nama.component';
         NotificationComponent,
         NgbdModalBasic,
         ONamaComponent,
+        PonudeComponent,
+        KontaktComponent,
     ],
     exports:[ ComponentsComponent ]
 })

@@ -9,6 +9,8 @@ import { LoginComponent } from './examples/login/login.component';
 import { ProfileComponent } from './examples/profile/profile.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { ONamaComponent } from './components/o-nama/o-nama.component';
+import { PonudeComponent } from './components/ponude/ponude.component';
+import { KontaktComponent } from './components/kontakt/kontakt.component';
 
 const routes: Routes =[
     { path: '', redirectTo: 'index', pathMatch: 'full' },
@@ -17,7 +19,9 @@ const routes: Routes =[
     { path: 'examples/landing',     component: LandingComponent },
     { path: 'examples/login',       component: LoginComponent },
     { path: 'examples/profile',     component: ProfileComponent },
-    {path: 'o-nama', component: ONamaComponent}
+    {path: 'o-nama', component: ONamaComponent},
+    {path: 'ponude', component: PonudeComponent},
+    {path:'kontakt', component: KontaktComponent}
 ];
 
 @NgModule({

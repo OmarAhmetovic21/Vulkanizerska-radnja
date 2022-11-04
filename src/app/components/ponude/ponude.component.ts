@@ -3,11 +3,11 @@ import { Router } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
-  selector: 'app-o-nama',
-  templateUrl: './o-nama.component.html',
-  styleUrls: ['./o-nama.component.css']
+  selector: 'app-ponude',
+  templateUrl: './ponude.component.html',
+  styleUrls: ['./ponude.component.css']
 })
-export class ONamaComponent implements OnInit {
+export class PonudeComponent implements OnInit {
   isDesktopDevice: any;
   constructor(private router: Router,
               private deviceService: DeviceDetectorService) { }
@@ -21,6 +21,5 @@ export class ONamaComponent implements OnInit {
   open(page: any) {
     this.router.navigateByUrl('/' + page);
 }
-
 
 }
