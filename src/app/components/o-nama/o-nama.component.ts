@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Component({
   selector: 'app-o-nama',
@@ -8,10 +8,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./o-nama.component.css']
 })
 export class ONamaComponent implements OnInit {
-
-  constructor(private router: Router) { }
+  isDesktopDevice: any;
+  constructor(private router: Router,
+              private deviceService: DeviceDetectorService) { }
 
   ngOnInit(): void {
+    this.isDesktopDevice = this.deviceService.isDesktop();
   }
 
   open(page: any) {
