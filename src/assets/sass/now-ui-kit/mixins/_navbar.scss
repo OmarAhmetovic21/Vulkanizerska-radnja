@@ -168,7 +168,7 @@
             background: -webkit-linear-gradient($brand-primary 0%, #000 80%); /* For Safari 5.1 to 6.0 */
             background: -o-linear-gradient($brand-primary 0%, #000 80%); /* For Opera 11.1 to 12.0 */
             background: -moz-linear-gradient($brand-primary 0%, #000 80%); /* For Firefox 3.6 to 15 */
-            background: linear-gradient(#2ca8ff 50%, #000 80%);/* Standard syntax (must be last) */
+            background: linear-gradient(#2ca8ff 30%, #000 80%);/* Standard syntax (must be last) */
             @include opacity(.76);
 
             display: block;
