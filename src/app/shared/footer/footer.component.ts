@@ -13,6 +13,10 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  open(page: any) {
+    this.router.navigateByUrl('/' + page);
+}
+
   getPath(){
     return this.router.url;
   }

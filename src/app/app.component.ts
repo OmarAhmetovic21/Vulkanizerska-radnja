@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject, Renderer2, ElementRef, ViewChild } from '@angular/core';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd, NavigationStart} from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/operator/filter';
 import { DOCUMENT } from '@angular/common';
@@ -14,6 +14,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 export class AppComponent implements OnInit {
     private _router: Subscription;
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
+    displayFooter = true;
 
     constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
     ngOnInit() {
@@ -39,5 +40,15 @@ export class AppComponent implements OnInit {
                 }
             });
         });
+
+        this.router.events
+        .filter(event => event instanceof NavigationStart)
+        .subscribe((event:NavigationStart) => {
+            if(event?.url ==='/examples/login') {
+                this.displayFooter = false;
+             } else {
+                 this.displayFooter = true;
+             }
+        });      
     }
 }
