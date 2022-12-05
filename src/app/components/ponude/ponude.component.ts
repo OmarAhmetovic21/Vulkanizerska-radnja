@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { BehaviorSubject } from 'rxjs';
 import * as Rellax from 'rellax';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ArticlesService } from 'app/services/articles/articles.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -19,7 +20,8 @@ export class PonudeComponent implements OnInit {
   constructor(private router: Router,
               private deviceService: DeviceDetectorService,
               private modalService: NgbModal,
-              private articlesService: ArticlesService) { 
+              private articlesService: ArticlesService,
+              private sanitizer: DomSanitizer) { 
 
             this.getArticlesObservable = new BehaviorSubject<any[]>([]);
   }
@@ -41,6 +43,9 @@ getArticles() {
     // resp.json().data
     this.getArticlesObservable.next(data);
     console.log(data);
+    for (var index in data) {
+      console.log(data[index].media);
+    }
   })
 }
 
