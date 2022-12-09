@@ -11,6 +11,12 @@
                 <h2 class="title" [ngClass]="isDesktopDevice ? 'col-12': 'col-12 mx-auto text-center'">Ponude</h2>
             </div>
 
+            <div class="row">
+                <button class="btn btn-info btn-round btn-lg" type="button">Dodaj ponudu</button>
+            </div>
+
+
+
             <div class="row" *ngFor="let item of (this.getArticlesObservable | async); let i = index">
                 <h4 [ngClass]="isDesktopDevice ? 'col-3': 'col-12 mx-auto text-center'">{{item.name}}</h4>
                 <h4 [ngClass]="isDesktopDevice ? 'col-3': 'col-12 mx-auto text-center'">{{item.media}}</h4>
