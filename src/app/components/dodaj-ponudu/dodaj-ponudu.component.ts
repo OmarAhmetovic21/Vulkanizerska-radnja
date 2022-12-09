@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dodaj-ponudu',
@@ -8,9 +9,12 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class DodajPonuduComponent implements OnInit {
 
+  ponudaFormGroup:FormGroup;
+
   constructor( public activeModal: NgbActiveModal) { }
 
   ngOnInit(): void {
+
   }
 
   closeModal() {
