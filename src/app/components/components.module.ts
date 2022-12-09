@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { NouisliderModule } from 'ng2-nouislider';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { RouterModule } from '@angular/router';
-
 import { BasicelementsComponent } from './basicelements/basicelements.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { TypographyComponent } from './typography/typography.component';
@@ -16,6 +15,7 @@ import { NgbdModalBasic } from './modal/modal.component';
 import { ONamaComponent } from './o-nama/o-nama.component';
 import { PonudeComponent } from './ponude/ponude.component';
 import { KontaktComponent } from './kontakt/kontakt.component';
+import { DodajPonuduComponent } from './dodaj-ponudu/dodaj-ponudu.component';
 
 
 @NgModule({
@@ -37,7 +37,8 @@ import { KontaktComponent } from './kontakt/kontakt.component';
         NgbdModalBasic,
         ONamaComponent,
         PonudeComponent,
-        KontaktComponent
+        KontaktComponent,
+        DodajPonuduComponent
     ],
     exports:[ ComponentsComponent ]
 })
