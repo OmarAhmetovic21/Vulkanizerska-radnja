@@ -15,6 +15,6 @@ export class ArticlesService {
   public getArticles(): Observable<any>{
     const headers = new HttpHeaders();
     headers.set('Content-Type', 'application/json; charset=utf-8');  
-    return this.httpClient.get(this.API_SERVER + 'config/Articles.php',{headers: headers});
+    return this.httpClient.get(this.API_SERVER + 'config/getArticles.php',{headers: headers});
   }
 }
