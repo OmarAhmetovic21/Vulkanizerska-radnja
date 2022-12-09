@@ -33,9 +33,14 @@
             <div class="col-12 mt-4">
                 <h5>Dodaj multimedia sadržaj
                 </h5>
+                <input style="width: 100%; height:100%; background-color: #b8b5b5;;" maxlength="255" class="form-control" [(ngModel)]="title"/>
             </div>
 
         </div>
+
+        <div class="modal-footer mt-5">
+            <button (click)="save()" type="button" class="btn btn-info"><h5 class="mb-0">Sačuvaj</h5></button>
+          </div>
         
           
     </div>
