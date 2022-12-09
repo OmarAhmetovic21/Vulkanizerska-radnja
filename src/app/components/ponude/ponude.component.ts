@@ -6,6 +6,7 @@ import * as Rellax from 'rellax';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ArticlesService } from 'app/services/articles/articles.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DodajPonuduComponent } from '../dodaj-ponudu/dodaj-ponudu.component';
 
 @Component({
   selector: 'app-ponude',
@@ -36,6 +37,17 @@ export class PonudeComponent implements OnInit {
   open(page: any) {
     this.router.navigateByUrl('/' + page);
     
+}
+
+openDodajPonudu(){
+  const modalRef = this.modalService.open(DodajPonuduComponent,
+    {
+      scrollable: true,
+      windowClass: 'myCustomModalClass',
+    });
+    modalRef.result.then((result:any) => {
+      console.log(result);
+    })
 }
 
 getArticles() {
