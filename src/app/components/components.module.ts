@@ -16,6 +16,7 @@ import { NgbdModalBasic } from './modal/modal.component';
 import { ONamaComponent } from './o-nama/o-nama.component';
 import { PonudeComponent } from './ponude/ponude.component';
 import { KontaktComponent } from './kontakt/kontakt.component';
+import { AddOffersComponent } from './add-offers/add-offers.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { KontaktComponent } from './kontakt/kontakt.component';
         ONamaComponent,
         PonudeComponent,
         KontaktComponent,
+        AddOffersComponent,
     ],
     exports:[ ComponentsComponent ]
 })
