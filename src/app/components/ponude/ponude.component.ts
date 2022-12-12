@@ -45,9 +45,6 @@ openDodajPonudu(){
       scrollable: true,
       windowClass: 'myCustomModalClass',
     });
-    modalRef.result.then((result:any) => {
-      console.log(result);
-    })
 }
 
 getArticles() {
