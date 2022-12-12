@@ -12,7 +12,9 @@
             </div>
 
             <div class="row">
-                <button class="btn btn-info btn-round btn-lg" type="button" (click)="openDodajPonudu()">Dodaj ponudu</button>
+                <button [ngClass]="isDesktopDevice ? '': 'mx-auto text-center'" 
+                class="btn btn-info btn-round btn-lg" type="button" (click)="openDodajPonudu()">
+                Dodaj ponudu</button>
             </div>
 
 
