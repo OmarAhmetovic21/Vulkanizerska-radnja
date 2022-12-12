@@ -10,7 +10,7 @@ import { ArticlesService } from 'app/services/articles/articles.service';
 })
 export class DodajPonuduComponent implements OnInit {
   
-  @Input() post: any;
+  @Input()
   name: any;
   price: any;
   amount: any;
@@ -28,12 +28,18 @@ export class DodajPonuduComponent implements OnInit {
   }
 
   postArticle() {
-    let data = this.post;
+    let data = {
+      name: this.name,
+      price: this.price,
+      amount: this.amount,
+      media: this.media
+    }
+    console.log(data)
     this.articlesService.postArticle(data).subscribe((data: any)=> {
+      console.log("Uspješno ste dodali ponudu");
     } );
     this.activeModal.close();
   }
 
   
-
 }
