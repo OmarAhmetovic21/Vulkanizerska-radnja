@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ArticlesService } from 'app/services/articles/articles.service';
@@ -9,8 +9,12 @@ import { ArticlesService } from 'app/services/articles/articles.service';
   styleUrls: ['./dodaj-ponudu.component.css']
 })
 export class DodajPonuduComponent implements OnInit {
-
-  ponudaFormGroup:FormGroup;
+  
+  @Input() post: any;
+  name: any;
+  price: any;
+  amount: any;
+  media: any;
 
   constructor(public activeModal: NgbActiveModal,
               private articlesService: ArticlesService) { }
@@ -20,6 +24,13 @@ export class DodajPonuduComponent implements OnInit {
   }
 
   closeModal() {
+    this.activeModal.close();
+  }
+
+  postArticle() {
+    let data = this.post;
+    this.articlesService.postArticle(data).subscribe((data: any)=> {
+    } );
     this.activeModal.close();
   }
 
