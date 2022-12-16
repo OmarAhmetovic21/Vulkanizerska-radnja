@@ -30,6 +30,7 @@ export class ObrisiPonuduComponent implements OnInit {
     this.articlesService.deleteArticle(names).subscribe((data: any) => {
 
     });
+    this.activeModal.close();
   }
 
 }
