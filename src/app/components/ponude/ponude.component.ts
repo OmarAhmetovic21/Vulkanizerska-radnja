@@ -7,6 +7,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ArticlesService } from 'app/services/articles/articles.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DodajPonuduComponent } from '../dodaj-ponudu/dodaj-ponudu.component';
+import { ObrisiPonuduComponent } from '../obrisi-ponudu/obrisi-ponudu.component';
 
 @Component({
   selector: 'app-ponude',
@@ -50,6 +51,14 @@ openDodajPonudu(){
     });
 }
 
+openObrisiPonudu(){
+  const modalRef = this.modalService.open(ObrisiPonuduComponent,
+    {
+      scrollable: true,
+      windowClass: 'myCustomModalClass',
+    });
+}
+
 getArticles() {
   this.articlesService.getArticles().subscribe((data: any) => {
     // resp.json().data
@@ -60,15 +69,6 @@ getArticles() {
       console.log(data[index].id)
     }
   })
-}
-
-deleteArticles(id){
-  this.articlesService.deleteArticle(id).subscribe((data: any) => {
-    data = {
-      id:this.id
-    }
-    this.getArticles();
-  });
 }
 
 }

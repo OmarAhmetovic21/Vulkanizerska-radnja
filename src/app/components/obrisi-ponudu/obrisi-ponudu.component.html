@@ -1,0 +1,22 @@
+<div class="modal-header" style="background-color: red;">
+    <h1 class="modal-title" style="color: #000000;; text-align: center;">Obriši Ponudu</h1>
+    <button style="background-color: red;" type="button" class="close" data-dismiss="modal" (click)="activeModal.close()">
+      <span style="color: #000000;" aria-hidden="true">&times;</span>
+    </button>
+   </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-12 mb-2" style="width: 100%; height:100%">
+                <h5>
+                    Naziv
+                </h5>
+                <input type="text" style="width: 100%; height:100%; background-color: #b8b5b5;;" maxlength="255" class="form-control" [(ngModel)]="name"/>
+                
+            </div>
+        <div class="modal-footer mt-5">
+            <button style="width:100% ;" type="button" 
+            class="btn btn-danger btn-round mx-auto" (click)="deleteArticles()"><h5 class="mb-0">Sačuvaj</h5></button>
+        </div>
+        
+          
+    </div>
