@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { DeviceDetectorService } from 'ngx-device-detector';
 import { BehaviorSubject } from 'rxjs';
@@ -15,6 +15,9 @@ import { DodajPonuduComponent } from '../dodaj-ponudu/dodaj-ponudu.component';
   providers: [ArticlesService]
 })
 export class PonudeComponent implements OnInit {
+  @Input()
+  id: any;
+
   isDesktopDevice: any;
   articles: any[] = [];
   getArticlesObservable: BehaviorSubject<any[]>;
@@ -54,8 +57,18 @@ getArticles() {
     console.log(data);
     for (var index in data) {
       console.log(data[index].media);
+      console.log(data[index].id)
     }
   })
+}
+
+deleteArticles(id){
+  this.articlesService.deleteArticle(id).subscribe((data: any) => {
+    data = {
+      id:this.id
+    }
+    this.getArticles();
+  });
 }
 
 }

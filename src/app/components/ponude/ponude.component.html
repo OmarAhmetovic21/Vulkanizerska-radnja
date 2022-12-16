@@ -17,6 +17,12 @@
                 Dodaj ponudu</button>
             </div>
 
+            <div class="row">
+                <button [ngClass]="isDesktopDevice ? '': 'mx-auto text-center'" 
+                class="btn btn-danger btn-round btn-lg" type="button" (click)="deleteArticles()">
+                Obriši ponudu</button>
+            </div>
+
 
 
             <div class="row" *ngFor="let item of (this.getArticlesObservable | async); let i = index">
@@ -24,7 +30,6 @@
                 <h4 [ngClass]="isDesktopDevice ? 'col-3': 'col-12 mx-auto text-center'">{{item.media}}</h4>
                 <h4 [ngClass]="isDesktopDevice ? 'col-3': 'col-12 mx-auto text-center'">{{item.price}} KM</h4>
                 <h4 [ngClass]="isDesktopDevice ? 'col-3': 'col-12 mx-auto text-center'">Na stanju: {{item.amount}}</h4>
- 
             </div>
             
         </div>

@@ -23,4 +23,13 @@ export class ArticlesService {
     headers.set('Content-Type', 'application/json; charset=utf-8');  
     return this.httpClient.post(this.API_SERVER + 'config/postArticles.php', data, {headers: headers});
   }
+
+  public deleteArticle(id: any): Observable<any>{
+    const headers = new HttpHeaders();
+    const jsonObject = {
+      id: id
+    }
+    headers.set('Content-Type', 'application/json; charset=utf-8');  
+    return this.httpClient.post(this.API_SERVER + 'config/deleteArticles.php', jsonObject, {headers: headers});
+  }
 }

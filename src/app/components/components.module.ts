@@ -16,6 +16,7 @@ import { ONamaComponent } from './o-nama/o-nama.component';
 import { PonudeComponent } from './ponude/ponude.component';
 import { KontaktComponent } from './kontakt/kontakt.component';
 import { DodajPonuduComponent } from './dodaj-ponudu/dodaj-ponudu.component';
+import { ObrisiPonuduComponent } from './obriši-ponudu/obrisi-ponudu/obrisi-ponudu.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { DodajPonuduComponent } from './dodaj-ponudu/dodaj-ponudu.component';
         ONamaComponent,
         PonudeComponent,
         KontaktComponent,
-        DodajPonuduComponent
+        DodajPonuduComponent,
+        ObrisiPonuduComponent
     ],
     exports:[ ComponentsComponent ]
 })
