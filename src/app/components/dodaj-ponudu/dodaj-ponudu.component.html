@@ -33,7 +33,8 @@
             <div class="col-12 mt-4">
                 <h5>Dodaj multimedia sadržaj
                 </h5>
-                <input type="text" style="width: 100%; height:100%; background-color: #b8b5b5;" maxlength="255" class="form-control" [(ngModel)]="media"/>
+                <input type="file" style="width: 100%; height:100%; background-color: #b8b5b5;" 
+                class="form-control" (change)="onChange($event)" [(ngModel)]="media"/>
             </div>
 
         </div>

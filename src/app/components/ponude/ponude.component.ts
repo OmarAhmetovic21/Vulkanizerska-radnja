@@ -66,7 +66,7 @@ getArticles() {
     console.log(data);
     for (var index in data) {
       console.log(data[index].media);
-      console.log(data[index].id)
+      console.log(data[index].id);
     }
   })
 }
