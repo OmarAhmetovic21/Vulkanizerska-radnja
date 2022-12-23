@@ -62,13 +62,6 @@ export class ComponentsComponent implements OnInit {
         navbar.classList.add('navbar-transparent');
         var body = document.getElementsByTagName('body')[0];
         body.classList.add('index-page');
-
-        var animation = document.getElementsByClassName('animate')[0];
-        var checkNavbar = navbar.classList.contains('navbar-transparent');
-        console.log(checkNavbar)
-        if (checkNavbar===false) {
-            animation.classList.add('animate')
-        }
        
 
     }
@@ -78,5 +71,6 @@ export class ComponentsComponent implements OnInit {
         var body = document.getElementsByTagName('body')[0];
         body.classList.remove('index-page');
     }
+    
 
 }
