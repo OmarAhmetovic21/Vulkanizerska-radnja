@@ -70,7 +70,7 @@ export class ComponentsComponent implements OnInit {
         navbar.classList.remove('navbar-transparent');
         var body = document.getElementsByTagName('body')[0];
         body.classList.remove('index-page');
-
+        
     }
 
 }
