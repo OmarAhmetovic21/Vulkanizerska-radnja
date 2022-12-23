@@ -55,6 +55,7 @@ export class ComponentsComponent implements OnInit {
     }
 
     ngOnInit() {
+
       var rellaxHeader = new Rellax('.rellax-header');
 
         var navbar = document.getElementsByTagName('nav')[0];
@@ -68,4 +69,6 @@ export class ComponentsComponent implements OnInit {
         var body = document.getElementsByTagName('body')[0];
         body.classList.remove('index-page');
     }
+
+    
 }
