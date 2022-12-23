@@ -77,4 +77,16 @@
     align-items: center;
     width: 100%;
   }
+
+  .animate{
+    position: relative;
+    animation-name: animation;
+    animation-duration: 2s;
+  }
+
+  @keyframes animation {
+    0%   {left:-100%; top:0px;}
+    100%  {left:0%; top:0px;}
+    
+  }
   
