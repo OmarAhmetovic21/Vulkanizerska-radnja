@@ -56,12 +56,21 @@ export class ComponentsComponent implements OnInit {
 
     ngOnInit() {
 
-      var rellaxHeader = new Rellax('.rellax-header');
+        var rellaxHeader = new Rellax('.rellax-header');
 
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.add('navbar-transparent');
         var body = document.getElementsByTagName('body')[0];
         body.classList.add('index-page');
+
+        var animation = document.getElementsByClassName('animate')[0];
+        var checkNavbar = navbar.classList.contains('navbar-transparent');
+        console.log(checkNavbar)
+        if (checkNavbar===false) {
+            animation.classList.add('animate')
+        }
+       
+
     }
     ngOnDestroy(){
         var navbar = document.getElementsByTagName('nav')[0];
@@ -70,5 +79,4 @@ export class ComponentsComponent implements OnInit {
         body.classList.remove('index-page');
     }
 
-    
 }
