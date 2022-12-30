@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { DeviceDetectorService } from 'ngx-device-detector';
+import { BehaviorSubject } from 'rxjs';
 import * as Rellax from 'rellax';
+import { DomSanitizer } from '@angular/platform-browser';
+import { UsersService } from 'app/services/users-service/users.service';
 
 @Component({
   selector: 'app-profile',
@@ -15,10 +20,21 @@ export class ProfileComponent implements OnInit {
     focus;
     focus1;
 
-    constructor() { }
+    isDesktopDevice: any;
+    users: any[] = [];
+    getUsersObservable: BehaviorSubject<any[]>;
 
-    ngOnInit() {
+    constructor(private usersService: UsersService,
+                private router: Router,
+                private deviceService: DeviceDetectorService
+                                                            ) {
+this.getUsersObservable = new BehaviorSubject<any[]>([]);
+}
+
+    ngOnInit(): void {
+      this.getUsers();
       var rellaxHeader = new Rellax('.rellax-header');
+      this.isDesktopDevice = this.deviceService.isDesktop();
 
         var body = document.getElementsByTagName('body')[0];
         body.classList.add('profile-page');
@@ -30,6 +46,19 @@ export class ProfileComponent implements OnInit {
         body.classList.remove('profile-page');
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.remove('navbar-transparent');
+    }
+
+    open(page: any) {
+      this.router.navigateByUrl('/' + page);
+      
+  }
+
+    getUsers() {
+      this.usersService.getUsers().subscribe((data: any) => {
+        // resp.json().data
+        this.getUsersObservable.next(data);
+        console.log(data);
+      })
     }
 
 }
