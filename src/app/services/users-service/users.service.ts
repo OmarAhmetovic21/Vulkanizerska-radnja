@@ -16,4 +16,10 @@ export class UsersService {
     headers.set('Content-Type', 'application/json; charset=utf-8');  
     return this.httpClient.get(this.API_SERVER + 'config/getUsers.php',{headers: headers});
   }
+
+  public getToken(data: any): Observable<any>{
+    const headers = new HttpHeaders();
+    headers.set('Content-Type', 'application/json; charset=utf-8');  
+    return this.httpClient.post(this.API_SERVER + 'config/login.php', data, {headers: headers});
+  }
 }

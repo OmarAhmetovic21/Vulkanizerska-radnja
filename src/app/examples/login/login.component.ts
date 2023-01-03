@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
+import { UsersService } from 'app/services/users-service/users.service';
 
 @Component({
   selector: 'app-login',
@@ -7,12 +8,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+@Input()
+  email: any;
+  password: any;
 
-    data : Date = new Date();
-    focus;
-    focus1;
 
-    constructor( private router: Router) { }
+    constructor(private router: Router,
+                private usersService: UsersService) { }
 
     ngOnInit() {
         var body = document.getElementsByTagName('body')[0];
@@ -32,5 +34,17 @@ export class LoginComponent implements OnInit {
     open(page: any) {
         this.router.navigateByUrl('/' + page);
     }
+
+    getToken() {
+        let data = {
+          email: this.email,
+          password: this.password
+        }
+        console.log(data)
+        this.usersService.getToken(data).subscribe((data: any)=> {
+            console.log("Uspješno ste dodali korisnika");
+          } );
+
+      }
 
 }
