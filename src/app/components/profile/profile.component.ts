@@ -5,15 +5,15 @@ import { BehaviorSubject } from 'rxjs';
 import * as Rellax from 'rellax';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ArticlesService } from 'app/services/articles/articles.service';
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { DodajPonuduComponent } from 'app/components/dodaj-ponudu/dodaj-ponudu.component';
-import { ObrisiPonuduComponent } from 'app/components/obrisi-ponudu/obrisi-ponudu.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { DodajPonuduComponent } from '../dodaj-ponudu/dodaj-ponudu.component';
+import { ObrisiPonuduComponent } from '../obrisi-ponudu/obrisi-ponudu.component';
 import { UsersService } from 'app/services/users-service/users.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
   zoom: number = 14;
@@ -26,59 +26,55 @@ export class ProfileComponent implements OnInit {
 
     isDesktopDevice: any;
     users: any[] = [];
+    articles: any[] = [];
+    getArticlesObservable: BehaviorSubject<any[]>;
     getUsersObservable: BehaviorSubject<any[]>;
 
     constructor(private usersService: UsersService,
-                private router: Router,
-                private deviceService: DeviceDetectorService,
-                private modalService: NgbModal  ) {
+               private router: Router,
+               private deviceService: DeviceDetectorService,
+               private modalService: NgbModal,
+               private articlesService: ArticlesService,
+               private sanitizer: DomSanitizer  ) {
+this.getArticlesObservable = new BehaviorSubject<any[]>([]);
 this.getUsersObservable = new BehaviorSubject<any[]>([]);
 }
 
-    ngOnInit(): void {
-      this.getUsers();
-      var rellaxHeader = new Rellax('.rellax-header');
-      this.isDesktopDevice = this.deviceService.isDesktop();
+ngOnInit(): void {
+  this.isDesktopDevice = this.deviceService.isDesktop();
+  var navbar = document.getElementsByTagName('nav')[0];
+  navbar.classList.add('navbar-transparent');
+  this.getArticles();
+}
 
-        var body = document.getElementsByTagName('body')[0];
-        body.classList.add('profile-page');
-        var navbar = document.getElementsByTagName('nav')[0];
-        navbar.classList.add('navbar-transparent');
-    }
-    ngOnDestroy(){
-        var body = document.getElementsByTagName('body')[0];
-        body.classList.remove('profile-page');
-        var navbar = document.getElementsByTagName('nav')[0];
-        navbar.classList.remove('navbar-transparent');
-    }
-
-    open(page: any) {
-      this.router.navigateByUrl('/' + page);
-      
-  }
-
-  openDodajPonudu(){
-    const modalRef = this.modalService.open(DodajPonuduComponent,
-      {
-        scrollable: true,
-        windowClass: 'myCustomModalClass',
-      });
-      modalRef.result.then((result:any) => {
-        console.log(result);
-      })
-  }
+open(page: any) {
+  this.router.navigateByUrl('/' + page);
   
-  openObrisiPonudu(){
-    const modalRef = this.modalService.open(ObrisiPonuduComponent,
-      {
-        scrollable: true,
-        windowClass: 'myCustomModalClass',
-      });
-      modalRef.result.then((result:any) => {
-        console.log(result);
-      })
-      
-  }
+}
+
+openDodajPonudu(){
+const modalRef = this.modalService.open(DodajPonuduComponent,
+  {
+    scrollable: true,
+    windowClass: 'myCustomModalClass',
+  });
+}
+
+openObrisiPonudu(){
+const modalRef = this.modalService.open(ObrisiPonuduComponent,
+  {
+    scrollable: true,
+    windowClass: 'myCustomModalClass',
+  });
+}
+
+getArticles() {
+this.articlesService.getArticles().subscribe((data: any) => {
+  // resp.json().data
+  this.getArticlesObservable.next(data);
+  
+})
+}
 
     getUsers() {
       this.usersService.getUsers().subscribe((data: any) => {

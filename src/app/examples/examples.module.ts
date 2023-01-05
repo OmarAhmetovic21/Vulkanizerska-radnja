@@ -6,6 +6,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { JwBootstrapSwitchNg2Module } from 'jw-bootstrap-switch-ng2';
 import { AgmCoreModule } from '@agm/core';
 
+import { DodajPonuduComponent } from 'app/components/dodaj-ponudu/dodaj-ponudu.component';
+import { ObrisiPonuduComponent } from 'app/components/obrisi-ponudu/obrisi-ponudu.component';
+
 import { LandingComponent } from './landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { ProfileComponent } from './profile/profile.component';

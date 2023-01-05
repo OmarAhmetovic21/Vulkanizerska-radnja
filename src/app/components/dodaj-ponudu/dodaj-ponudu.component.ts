@@ -74,7 +74,6 @@ export class DodajPonuduComponent implements OnInit {
       amount: this.amount,
       media: this.image
     }
-    console.log(data)
     this.articlesService.postArticle(data).subscribe((data: any)=> {
       console.log("Uspješno ste dodali ponudu");
     } );

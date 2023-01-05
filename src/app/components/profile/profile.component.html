@@ -27,14 +27,23 @@
             class="btn btn-danger btn-round btn-lg" type="button" (click)="openObrisiPonudu()">
             Obriši ponudu</button>
         </div>
-            <div class="row justify-content-center">
 
-              <button class="btn btn-info btn-round btn-lg" type="button" (click)="open('index')">Odjava</button>
+        <div class="row mt-5" *ngFor="let item of (this.getArticlesObservable | async); let i = index">
+            <h4 [ngClass]="isDesktopDevice ? 'col-2': 'col-12 mx-auto text-center'">{{item.name}}</h4>
+            <img [ngClass]="isDesktopDevice ? 'col-6': 'col-12 mx-auto text-center'" src="{{item.media}}"> 
+            <h4 [ngClass]="isDesktopDevice ? 'col-2': 'col-12 mx-auto text-center'">{{item.price}} KM</h4>
+            <h4 [ngClass]="isDesktopDevice ? 'col-2': 'col-12 mx-auto text-center'">Na stanju: {{item.amount}}</h4>
+        </div>
+        
+        <div class="row justify-content-center mt-5">
 
-            </div>
+            <button class="btn btn-info btn-round btn-lg" type="button" (click)="open('index')">Odjava</button>
+
+        </div>
 
 
         </div>
     </div>
    
 </div>
+

@@ -17,6 +17,8 @@ import { PonudeComponent } from './ponude/ponude.component';
 import { KontaktComponent } from './kontakt/kontakt.component';
 import { DodajPonuduComponent } from './dodaj-ponudu/dodaj-ponudu.component';
 import { ObrisiPonuduComponent } from './obrisi-ponudu/obrisi-ponudu.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import { ObrisiPonuduComponent } from './obrisi-ponudu/obrisi-ponudu.component';
         PonudeComponent,
         KontaktComponent,
         DodajPonuduComponent,
-        ObrisiPonuduComponent
+        ObrisiPonuduComponent,
+        LoginComponent,
+        ProfileComponent
     ],
     exports:[ ComponentsComponent ]
 })
