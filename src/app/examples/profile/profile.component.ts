@@ -36,7 +36,7 @@ this.getUsersObservable = new BehaviorSubject<any[]>([]);
 }
 
     ngOnInit(): void {
-      this.getUsers();
+
       var rellaxHeader = new Rellax('.rellax-header');
       this.isDesktopDevice = this.deviceService.isDesktop();
 
@@ -80,11 +80,5 @@ this.getUsersObservable = new BehaviorSubject<any[]>([]);
       
   }
 
-    getUsers() {
-      this.usersService.getUsers().subscribe((data: any) => {
-        // resp.json().data
-        this.getUsersObservable.next(data);
-      })
-    }
 
 }

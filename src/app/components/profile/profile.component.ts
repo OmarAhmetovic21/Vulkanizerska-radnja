@@ -28,7 +28,6 @@ export class ProfileComponent implements OnInit {
     users: any[] = [];
     articles: any[] = [];
     getArticlesObservable: BehaviorSubject<any[]>;
-    getUsersObservable: BehaviorSubject<any[]>;
 
     constructor(private usersService: UsersService,
                private router: Router,
@@ -37,14 +36,14 @@ export class ProfileComponent implements OnInit {
                private articlesService: ArticlesService,
                private sanitizer: DomSanitizer  ) {
 this.getArticlesObservable = new BehaviorSubject<any[]>([]);
-this.getUsersObservable = new BehaviorSubject<any[]>([]);
 }
 
 ngOnInit(): void {
+  this.getArticles();
   this.isDesktopDevice = this.deviceService.isDesktop();
   var navbar = document.getElementsByTagName('nav')[0];
   navbar.classList.add('navbar-transparent');
-  this.getArticles();
+  
 }
 
 open(page: any) {
@@ -75,12 +74,5 @@ this.articlesService.getArticles().subscribe((data: any) => {
   
 })
 }
-
-    getUsers() {
-      this.usersService.getUsers().subscribe((data: any) => {
-        // resp.json().data
-        this.getUsersObservable.next(data);
-      })
-    }
 
 }

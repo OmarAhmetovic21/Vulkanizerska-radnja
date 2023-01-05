@@ -3,28 +3,26 @@
         <div class="page-header-image rellax-header" data-rellax-speed="-8" style="background-image: url('assets/img/profil.jpg') ;">
         </div>
         <div class="container">
-            <div class="content-center" *ngFor="let item of (this.getUsersObservable | async); let i = index"> 
-                <h3 class="title">{{item.displayName}}</h3>
-                <p class="category">{{item.role}}</p>
+            <div class="content-center"> 
+                <h3 class="title">Omar Ahmetović</h3>
+                <p class="category">Admin</p>
                 <div class="content">
                 </div>
             </div>
         </div>
     </div>
     <div class="section">
-        <div class="container">
-          <h3 class="title">Ponude
+        <div class="container ">
+          <h3 class="title" style="text-align: center;">Ponude
           </h3>
 
           <div class="row">
-            <button [ngClass]="isDesktopDevice ? '': 'mx-auto text-center'" 
-            class="btn btn-info btn-round btn-lg" type="button" (click)="openDodajPonudu()">
+            <button class="btn btn-info btn-round btn-lg mx-auto text-center" type="button" (click)="openDodajPonudu()">
             Dodaj ponudu</button>
         </div>
 
         <div class="row">
-            <button [ngClass]="isDesktopDevice ? '': 'mx-auto text-center'" 
-            class="btn btn-danger btn-round btn-lg" type="button" (click)="openObrisiPonudu()">
+            <button class="btn btn-danger btn-round btn-lg mx-auto text-center" type="button" (click)="openObrisiPonudu()">
             Obriši ponudu</button>
         </div>
 
