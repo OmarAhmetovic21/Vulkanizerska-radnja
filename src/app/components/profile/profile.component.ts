@@ -75,4 +75,9 @@ this.articlesService.getArticles().subscribe((data: any) => {
 })
 }
 
+logout(){
+  sessionStorage.clear();
+    this.router.navigateByUrl('/index');
+}
+
 }
