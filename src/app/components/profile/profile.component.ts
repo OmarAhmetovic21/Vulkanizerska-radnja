@@ -71,7 +71,6 @@ getArticles() {
 this.articlesService.getArticles().subscribe((data: any) => {
   // resp.json().data
   this.getArticlesObservable.next(data);
-  
 })
 }
 

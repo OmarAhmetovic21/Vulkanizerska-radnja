@@ -42,7 +42,6 @@ export class LoginComponent implements OnInit {
         }
         this.usersService.getToken(data).subscribe((data: any)=> {
             console.log("Uspješno ste se prijavili");
-            console.log(data.token)
             sessionStorage.setItem("jwt", data.token);
             this.router.navigateByUrl('/profile')
           },
