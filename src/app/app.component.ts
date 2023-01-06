@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
     private _router: Subscription;
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
     displayFooter = true;
+    displayNavbar = true;
 
     constructor( private renderer : Renderer2, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
     ngOnInit() {
@@ -48,6 +49,13 @@ export class AppComponent implements OnInit {
                 this.displayFooter = false;
              } else {
                  this.displayFooter = true;
+             }
+
+             if(event?.url ==='/profile'){
+                 this.displayNavbar = false;
+             }
+             else{
+                 this.displayNavbar = true;
              }
         });      
     }
